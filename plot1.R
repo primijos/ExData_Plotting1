@@ -1,0 +1,6 @@
+data <- read.csv("./Data/data2.csv", header=T, sep=";")
+data$Date <- as.Date(data$Date)
+data$Time <- strptime(data$Time,format="%H:%M")
+png(filename="./plot1.png")
+hist(data$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
+dev.off()

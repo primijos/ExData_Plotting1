@@ -1,0 +1,8 @@
+data <- read.csv("./Data/data2.csv", header=T, sep=";")
+data$Date <- as.Date(data$Date)
+data$Time <- strptime(data$Time,format="%H:%M")
+png(filename="./plot2.png")
+l<-length(data$Global_active_power)
+plot(1:l, data$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="",xaxt="no")
+axis(1,at=c(1,l/2,l),labels=c("Thu","Fri","Sat"))
+dev.off()
